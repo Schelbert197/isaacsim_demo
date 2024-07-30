@@ -11,11 +11,15 @@ def generate_launch_description():
             parameters=[{
                 'frame_id': 'camera_link',
                 'subscribe_rgbd': True,
+                'approx_sync': True,  # Enables approx. time synchronization
+                'queue_size': 10,     # Adjust queue size as needed
+                'subscribe_imu': True,  # Enables IMU subscription
             }],
             remappings=[
                 ('rgb/image', '/camera/image_raw'),
                 ('depth/image', '/camera/depth/image_raw'),
                 ('rgb/camera_info', '/camera/camera_info'),
+                ('imu', '/imu'),  # Add the IMU topic remapping
             ]
         ),
         Node(
@@ -26,12 +30,14 @@ def generate_launch_description():
                 'frame_id': 'base_link',
                 'subscribe_depth': True,
                 'subscribe_scan': True,
+                'subscribe_imu': True,  # Enables IMU subscription
             }],
             remappings=[
                 ('rgb/image', '/camera/image_raw'),
                 ('depth/image', '/camera/depth/image_raw'),
                 ('scan', '/scan'),
                 ('rgb/camera_info', '/camera/camera_info'),
+                ('imu', '/imu'),  # Add the IMU topic remapping
             ]
         ),
         Node(
@@ -46,6 +52,7 @@ def generate_launch_description():
                 ('depth/image', '/camera/depth/image_raw'),
                 ('scan', '/scan'),
                 ('rgb/camera_info', '/camera/camera_info'),
+                ('imu', '/imu'),  # Add the IMU topic remapping
             ]
         )
     ])

@@ -35,6 +35,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'points_to_scan = isaac_sim_demo.pointcloud_to_laserscan:main'
         ],
     },
 )

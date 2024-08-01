@@ -9,8 +9,8 @@
         <param name="window" value="$(var window)"/>
     </node> -->
 
-    <!-- Launch path node -->
-    <!-- <node pkg="turtlebot_control" exec="path_publisher" name="path_publisher"></node> -->
+    <!-- Launch LIDAR flattener node -->
+    <node pkg="isaac_sim_demo" exec="points_to_scan" name="points_to_scan"></node>
 
     <!-- Launch slam-toolbox in online async mode -->
     <include file="$(find-pkg-share slam_toolbox)/launch/online_async_launch.py">

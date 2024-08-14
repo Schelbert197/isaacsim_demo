@@ -53,7 +53,6 @@ class YoloImage(Node):
 
     def process_image(self):
         """Processes the image using YOLOv8"""
-        self.get_logger().info(f"Message header: {self.image.header}")
         try:
             # Convert the ROS Image message to an OpenCV image
             cv_image = self.bridge.imgmsg_to_cv2(
@@ -84,7 +83,7 @@ class YoloImage(Node):
         else:
             self.state = State.PROCESSING_IMAGE
             if self.state == State.PROCESSING_IMAGE:
-                self.get_logger().info('processing image')
+                self.get_logger().debug('processing image')
                 self.process_image()
             else:
                 pass

@@ -29,7 +29,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'points_to_scan = isaac_sim_demo.pointcloud_to_laserscan:main'
+            'points_to_scan = isaac_sim_demo.pointcloud_to_laserscan:main',
+            'yolo_image = isaac_sim_demo.yolo_image:main'
         ],
     },
 )

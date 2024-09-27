@@ -21,7 +21,7 @@ class PointCloudToLaserScan(Node):
         self.scan_topic = self.get_parameter('scan_topic').value
 
         self.lidar_sub = self.create_subscription(
-            PointCloud2, '/pointcloud', self.pointcloud_callback, 10)
+            PointCloud2, '/sensors/lidar_3d/velodyne_points', self.pointcloud_callback, 10)
         self.scan_pub = self.create_publisher(LaserScan, self.scan_topic, 10)
 
     def pointcloud_callback(self, msg):
